@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router";
-import MainLayout from "./layouts/MainLayout";
+import MainLayout from "./layouts/MainLAyout";
 import GamesPage from "./pages/GamesPage";
 
 function App() {
