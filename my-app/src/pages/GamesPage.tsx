@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import type { Game } from "../types";
 import { API_URL } from "../api";
+import GameCard from "../components/GameCard";
 
 const GamesPage = () => {
   const [games, setGames] = useState<Game[]>([]);
@@ -40,14 +41,7 @@ const GamesPage = () => {
       {!isLoading && !error && (
         <div>
           {games.map((game) => (
-            <div key={game.id}>
-              <h2>{game.title}</h2>
-              <p>{game.platform}</p>
-              <p>Status: {game.status}</p>
-              <p>Rating: {game.rating !== null ? game.rating : "N/A"}</p>
-              <p>Notes: {game.notes !== null ? game.notes : "N/A"}</p>
-              {game.coverUrl && <img src={game.coverUrl} alt={`${game.title} cover`} />}
-            </div>
+            <GameCard key={game.id} game={game} />
           ))}
         </div>
       )}
