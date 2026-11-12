@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
-import type { Game } from "../types";
+import type { FilterStatus, Game } from "../types";
 import { API_URL } from "../api";
 import GameCard from "../components/GameCard";
+import GameFilter from "../components/GameFilter";
+
+
 
 const GamesPage = () => {
+  const [status, setStatus] = useState<FilterStatus>('all');
   const [games, setGames] = useState<Game[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -11,7 +15,13 @@ const GamesPage = () => {
     const fetchGames = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`${API_URL}/games`);
+        setError(null);
+const url =
+  status === "all"
+    ? `${API_URL}/games`
+    : `${API_URL}/games?status=${status}`;
+
+const response = await fetch(url);
         if (!response.ok) {
         throw new Error("Failed to fetch games");
         }
@@ -23,30 +33,34 @@ const GamesPage = () => {
       } finally {
         setIsLoading(false);
       }
-      console.log("Fetching from:", `${API_URL}/games`);
 
-      const response = await fetch(`${API_URL}/games`);
-
-      console.log("HTTP status:", response.status);
     };
 
     fetchGames();
-  }, []);
+  }, [status]);
 
-  return (
-    <div>
-      <h1>My Questlog</h1>
-      {isLoading && <p>Loading games...</p>}
-      {error && <p>{error}</p>}
-      {!isLoading && !error && (
-        <div>
-          {games.map((game) => (
-            <GameCard key={game.id} game={game} />
-          ))}
-        </div>
-      )}
-    </div>
-  );
+return (
+  <div>
+    <h1>My Questlog</h1>
+
+    <GameFilter
+      status={status}
+      onStatusChange={setStatus}
+    />
+
+    {isLoading && <p>Loading games...</p>}
+    {error && <p>{error}</p>}
+
+    {!isLoading && !error && (
+      <div>
+        {games.map((game) => (
+          <GameCard key={game.id} game={game} />
+        ))}
+        {games.length === 0 && <p>No games found.</p>}
+      </div>
+    )}
+  </div>
+);
 };
 
 export default GamesPage;
