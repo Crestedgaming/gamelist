@@ -3,6 +3,7 @@ import MainLayout from "./layouts/MainLAyout";
 import GamesPage from "./pages/GamesPage";
 import GameDetailsPage from "./pages/GameDetailsPage";
 import AddGamePage from "./pages/AddGamePage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<GamesPage />} />
         <Route path="/games/:id" element={<GameDetailsPage />} />
         <Route path="/games/" element={<GamesPage />} />
+        <Route path="*" element={<NotFoundPage/>} />
       </Route>
     </Routes>
   );
