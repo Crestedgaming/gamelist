@@ -1,4 +1,5 @@
 import type { Game } from "../types";
+import { Link } from "react-router";
 
 type GameCardProps = {
   game: Game;
@@ -16,6 +17,8 @@ const GameCard = ({ game }: GameCardProps) => {
       {game.coverUrl && (
         <img src={game.coverUrl} alt={`${game.title} cover`} />
       )}
+
+      <Link to={`/games/${game.id}`}>View Details</Link>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import Header from "../components/Header";
 const MainLayout = () => {
   return (
     <>
-     <h1>TEST - MainLayout fungerar!</h1>
+     <h1>Game List</h1>
       <Header />
       <main>
         <Outlet />
