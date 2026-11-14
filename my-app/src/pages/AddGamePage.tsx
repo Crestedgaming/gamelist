@@ -1,10 +1,11 @@
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import { API_URL } from "../api";
+import { useNavigate } from "react-router";
 
 const AddGamePage = () => {
 
-  
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
   title: "",
@@ -53,7 +54,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     }
 
     console.log("Game added successfully!");
-
+    navigate("/games");
   } catch (error) {
     console.error("Error adding game:", error);
   }
