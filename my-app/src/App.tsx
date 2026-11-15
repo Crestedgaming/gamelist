@@ -5,6 +5,7 @@ import GameDetailsPage from "./pages/GameDetailsPage";
 import AddGamePage from "./pages/AddGamePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
+
 function App() {
   return (
     <Routes>

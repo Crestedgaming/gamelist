@@ -40,8 +40,8 @@ const response = await fetch(url);
   }, [status]);
 
 return (
-  <div>
-    <h1>My Questlog</h1>
+  <div className="games-page">
+    <h1>My Game Collection</h1>
 
     <GameFilter
       status={status}
@@ -52,7 +52,7 @@ return (
     {error && <p>{error}</p>}
 
     {!isLoading && !error && (
-      <div>
+      <div className="games-grid">
         {games.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
