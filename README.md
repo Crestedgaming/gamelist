@@ -14,7 +14,14 @@ This project was developed as part of my Frontend Developer education at Mediein
 
 **GitHub Repository:** https://github.com/Crestedgaming/gamelist
 
-![questlog Game Collection Header] (./Screenshot 2026-11-15 172955.png)
+### Header/nav
+![Questlog Game Collection](./my-app/src/assets/questlog-home.png)
+### Game Collection
+![Questlog Game Collection](./my-app/src/assets/Screenshot%202026-11-15%20173954.png)
+### Add New Game
+![Questlog Game Collection](./my-app/src/assets/Screenshot%202026-11-15%20174201.png)
+### Game Details
+![Questlog Game Collection](./my-app/src/assets/Screenshot%202026-11-15%20174342.png)
 
 ---
 
