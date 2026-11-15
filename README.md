@@ -14,7 +14,7 @@ This project was developed as part of my Frontend Developer education at Mediein
 
 **GitHub Repository:** https://github.com/Crestedgaming/gamelist
 
-Screenshots will be added when the final design is complete.
+![questlog Game Collection Header] (./Screenshot 2026-11-15 172955.png)
 
 ---
 
